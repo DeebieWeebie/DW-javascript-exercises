@@ -8,6 +8,7 @@ const removeFromArray = function(arr, ...manyMoreArgs) {
             newArray = newArray.toSpliced(i, 1);
         }
     }   
+    
     console.log(newArray);
     return (newArray);
 };
