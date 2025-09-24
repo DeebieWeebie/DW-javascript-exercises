@@ -1,16 +1,13 @@
 const leapYears = function(year) {
-    let leapYear = 0;
-    let userMessage = 'false';
+  
     do {
         if (year % 100 === 0 && year % 400 === 0) {
-            const leapYear = year;
-            return userMessage = 'true';
+            return true;
 
         } else if (year % 100 !== 0) { 
-            const leapYear = year;
-            return userMessage = 'true';
+            return true;
         } else {
-            return userMessage = 'false'
+            return false;
         }
 
     } while (year % 4);
