@@ -1,5 +1,5 @@
 const palindromes = function (string) {
-    const cleanString = string.toLowerCase().replace(/[^a-z]/g, '');  //replace that is NOT a letter
+    const cleanString = string.toLowerCase().replace(/[^a-z0-9]/g, '');  //replace everything that is NOT a letter ot s numnrt
     const noSpaceString = cleanString.replace(/ /g, '');
     const reverseString = noSpaceString.split('').reverse().join('');    
     return noSpaceString == reverseString;
