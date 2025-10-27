@@ -1,15 +1,12 @@
 const palindromes = function (string) {
-    let reverseString = string.split('').reverse().join('');    // split the word into single letters within each element of an array
-                                                                // then reverse the letters within each element
-                                                                // then join the letters
-    if (string == reverseString) {
-        return true;
-    } else {
-        return false;
-    }
+    const cleanString = string.toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g,'');
+    const reverseString = cleanString.split('').reverse().join('');    
+    return cleanString == reverseString;
 };
 
 palindromes("racecar");
+palindromes("racecar!");
+palindromes("Racecar!");
 
 // Do not edit below this line
 module.exports = palindromes;
