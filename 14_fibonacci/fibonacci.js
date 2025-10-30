@@ -1,22 +1,20 @@
 const fibonacci = function(num) {
-    let fibArray = [1,1];
-    integer = parseInt(num);
+    let fibArray = [0,1];
+    
+    if (typeof num !== "number") {
+        integer = parseInt(num);
+    } else {
+        integer = num;
+    }
 
-        if (integer > 2) {
-            for (let i = 2; i < integer; i++) {
-                fibArray[i] = fibArray[i-2] + fibArray[i-1];
-                fibArray.push(fibArray[i]);
-            }
-            return fibArray[integer];
-        } else if (integer == 0) {
-            let zeroVal = 0;
-            return zeroVal;
-        } else if (integer < 0) {
-            let userMessage = "OOPS";
-            return userMessage;
-        } else if (1 <= integer <= 2) {
-            return fibArray[(integer -1)];
-        }
+    if (integer < 0) return "OOPS";
+    if (integer == 0) return 0;
+
+    for (let i = 2; i <= integer; i++) {
+        fibArray[i] = fibArray[i-2] + fibArray[i-1];
+    }
+    
+    return fibArray[integer];
 };
 
 fibonacci(3);
