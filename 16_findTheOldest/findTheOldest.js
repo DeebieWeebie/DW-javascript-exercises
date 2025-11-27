@@ -1,3 +1,8 @@
+//NOTE does reduce loop though the array objects and compare ages?
+// review reduce, map.  Also, find tutorial on using array functions
+// on arrays with objects.  Also, I should have exercises from 
+// SOMEWHERE using accumulators.  
+
 const people = [
       {
         name: "Carly",
@@ -17,12 +22,8 @@ const people = [
     ]
 
 const findTheOldest = function() {
-    people.forEach((element) => {
-        element.age = (this.yearOfDeath - this.yearOfBirth);
-    });
 
-    const maxAge = Math.max(...people.map(obj => obj.age));
-    return people.filter(obj => obj.age === maxAge);
+
 };
 
 // Do not edit below this line
