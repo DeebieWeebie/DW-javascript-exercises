@@ -1,8 +1,7 @@
   const people = [
     {
       name: "Carly",
-      yearOfBirth: 1942,
-      yearOfDeath: 1970,
+      yearOfBirth: 1066,
     },
     {
       name: "Ray",
@@ -16,19 +15,19 @@
     },
   ]
 
-  const findTheOldest = function() {
-    const peopleWithAges = people.map(person => ({
-        ...person, age: person.yearOfDeath - person.yearOfBirth
-    }));
+const getAge = function (person) {
+  person.yearOfDeath ??= new Date().getFullYear();
+  return person.yearOfDeath - person.yearOfBirth;
+};
 
-    const maxAge = Math.max(...peopleWithAges.map(person => person.age));
-    const oldestPeople = peopleWithAges.filter(person => person.age === maxAge);
-    
-    return oldestPeople[0].name;
-  };
+const findTheOldest = function (people) {
+  const peopleOldestToYoungest = people.toSorted(
+    (person, nextPerson) => getAge(nextPerson) - getAge(person),
+  );
 
-  const nameOfOldest = findTheOldest(people);
-  console.log(nameOfOldest);
-  
+  const oldestPerson = peopleOldestToYoungest[0];
+  return oldestPerson;
+};
+
 // Do not edit below this line
 module.exports = findTheOldest;
